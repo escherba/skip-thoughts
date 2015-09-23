@@ -1,16 +1,14 @@
 '''
 Skip-thought vectors
 '''
-import os
-
 import theano
 import theano.tensor as tensor
-
+import warnings
 import cPickle as pkl
 import numpy
-import copy
 import nltk
 
+from pkg_resources import resource_filename
 from collections import OrderedDict, defaultdict
 from scipy.linalg import norm
 from nltk.tokenize import word_tokenize
@@ -20,8 +18,8 @@ profile = False
 #-----------------------------------------------------------------------------#
 # Specify model and table locations here
 #-----------------------------------------------------------------------------#
-path_to_models = '/u/rkiros/public_html/models/'
-path_to_tables = '/u/rkiros/public_html/models/'
+path_to_models = resource_filename(__name__, 'data/')
+path_to_tables = path_to_models
 #-----------------------------------------------------------------------------#
 
 path_to_umodel = path_to_models + 'uni_skip.npz'
